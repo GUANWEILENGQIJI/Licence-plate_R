@@ -1,0 +1,29 @@
+使用gpu加速                                         √
+从CCPD图片文件名中解析车牌坐标；                      √
+转换成 YOLO 标签；                                   √
+生成 datasets/train、datasets/val；
+训练 YOLO 车牌检测模型；                              ✔
+使用 LPRNet 进行车牌字符识别；
+编写推理程序，将 YOLO 检测出的车牌交给 LPRNet 识别。    ✔
+
+当前项目进度：
+YOLO 车牌检测模型：已经训练完成，可以生成 best.pt。
+CLPD 数据集：已经转换并生成 YOLO 格式。
+车牌裁剪和 CSV 标签命名：功能已经实现。
+LPRNet：可以正常训练、保存和测试。
+当前字符类别数为 70，旧的 68 类 Final_LPRNet_model.pth 不兼容。
+
+待解决问题：
+Accuracy较低
+训练仍不稳定。下一步重点应是清理重复数据、划分独立训练集和测试集等，再使用修复后的训练代码重新训练。
+
+
+#test测试集
+#train训练集
+    |_images图片
+    |   |_car001.jpg
+    |   |_...
+    |_labels标签
+        |_car001.txt
+        |_...
+#val验证集
